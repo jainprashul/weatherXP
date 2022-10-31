@@ -1,0 +1,12 @@
+// get current location of the user
+export const getCurrentLocation = () =>  {
+    return new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                resolve(position);
+            });
+        } else {
+            reject("Geolocation is not supported by this browser.");
+        }
+    });
+};
